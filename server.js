@@ -74,6 +74,21 @@ app.delete('/api/items/:id', (req, res) => {
   });
 });
 
+
+// Member
+app.post('/login', (req, res) => {
+  const { userid, pwd, email } = req.body;
+  const query = 'INSERT INTO member (userid, pwd, email, writeday) VALUES (?, ?, ?, NOW())';
+  db.query(query, [userid, pwd, email], (err, result) => {
+    if (err) {
+      console.error('Error in /login route:', err);
+      res.status(500).json({ error: err.message });
+      return;
+    }
+    res.json({ message: "가입완료", id: result.insertId });
+  });
+});
+
 const PORT = 5000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
