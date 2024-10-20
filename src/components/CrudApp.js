@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 function CrudApp() {
   const [items, setItems] = useState([]);
@@ -80,6 +81,7 @@ function CrudApp() {
           </li>
         ))}
       </ul>
+      <div><Link to="/Write">글쓰기</Link></div>
     </div>
   );
 }
