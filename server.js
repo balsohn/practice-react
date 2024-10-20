@@ -74,18 +74,6 @@ app.delete('/api/items/:id', (req, res) => {
   });
 });
 
-app.get('/list',(req,res) => {
-  const query="select * from pageboard order by id desc limit 20";
-  db.query(query,(err, results) => {
-    if(err) {
-      res.status(500).json({error: err.message});
-      return;
-    }
-    res.json(results);
-  })
-})
-
-
 const PORT = 5000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);

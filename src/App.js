@@ -5,10 +5,19 @@ import CrudApp from './components/CrudApp';
 import NewPage from './components/NewPage';
 import Write from './components/Write';
 import List from './components/List';
+import Member from './components/Member';
+
 
 function App() {
   return (
     <Router>
+      <header>
+        <div><img src="" alt='로고 이미지'/></div>
+        <div>
+          <Link to="/login">로그인</Link>
+          <Link to="/member">회원가입</Link>
+        </div>
+      </header>
       <div>
         <nav>
           <ul>
@@ -20,10 +29,11 @@ function App() {
         </nav>
 
         <Routes>
-          <Route path="/" element={<CrudApp />} />
+          <Route path="/" Component={CrudApp} />
           <Route path="/NewPage" element={<NewPage />}></Route>
           <Route path="/Write" Component={Write}/>
           <Route path="/List" Component={List}/>
+          <Route path="/member" element={<Member />}></Route>
           {/* 다른 라우트들 */}
         </Routes>
       </div>
